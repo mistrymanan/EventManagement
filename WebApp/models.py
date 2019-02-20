@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 
 # Create your models here.
@@ -21,6 +21,7 @@ class UserManager(BaseUserManager):
         account.set_password(password)
         account.save()
         return account
+
     def create_superuser(self,email,password,**kwargs):
         account = self.create_user(email, password, **kwargs)
         account.is_staff = True
@@ -31,13 +32,13 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-    email = models.EmailField(max_length=150, primary_key=True, null=False)
+    email = models.EmailField(max_length=50, primary_key=True, null=False)
     username = models.CharField(max_length=50, unique=True)
-    first_name = models.CharField(max_length=50, blank=True)
-    last_name = models.CharField(max_length=50, blank=True)
+    first_name = models.CharField(max_length=50, blank=False)
+    last_name = models.CharField(max_length=50, blank=False)
     is_admin = models.BooleanField(default=False)
-    is_staff=models.BooleanField(default=False)
-    date_of_birthdate = models.DateField(null=True)
+    is_staff= models.BooleanField(default=False)
+    date_of_birth = models.DateField(null=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -48,11 +49,7 @@ class User(AbstractBaseUser):
         ('f', 'Female'),
     )
     gender = models.CharField(max_length=10, choices=gender_choices)
-
-    # addressid
-
     objects = UserManager()
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
