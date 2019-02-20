@@ -48,7 +48,7 @@ class User(AbstractBaseUser):
         ('m', 'Male'),
         ('f', 'Female'),
     )
-    gender = models.CharField(max_length=10, choices=gender_choices)
+    gender = models.CharField(max_length=10, choices=gender_choices,)
     objects = UserManager()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
