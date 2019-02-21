@@ -102,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 #auth user model
-AUTH_USER_MODEL = 'WebApp.User'
+#AUTH_USER_MODEL = 'user'
 
 
 # Internationalization
