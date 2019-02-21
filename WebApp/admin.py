@@ -15,3 +15,4 @@ admin.site.register(venue)
 admin.site.register(events)
 admin.site.register(Address)
 admin.site.register(invitation)
+

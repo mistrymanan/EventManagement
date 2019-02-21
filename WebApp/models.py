@@ -62,6 +62,7 @@ from django.contrib.auth.models import PermissionsMixin
 #     def has_module_perms(self, app_label):
 #         return self.is_admin
 
+
 class Address(models.Model):
     id=models.CharField(primary_key=True,blank=False,auto_created=True,max_length=150)
     #user=models.ForeignKey(User,on_delete=models.CASCADE)

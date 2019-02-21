@@ -1,7 +1,6 @@
 from django.shortcuts import render
-# from django.template import RequestContext
 from django.views import generic
-from .forms import UserCreationForm
+from accounts.forms import CustomUserCreationForm
 from django.urls import reverse_lazy
 from .models import venue
 # from django.http import HttpResponse
@@ -17,7 +16,7 @@ def login(request):
 
 
 class SignUp(generic.CreateView):
-    form_class = UserCreationForm
+    form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
 

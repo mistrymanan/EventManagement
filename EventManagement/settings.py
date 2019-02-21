@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'WebApp',
+    'accounts',
     'widget_tweaks'
 ]
 
@@ -102,7 +103,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 #auth user model
+
+AUTH_USER_MODEL = 'accounts.User'
+
 #AUTH_USER_MODEL = 'user'
+
 
 
 # Internationalization
