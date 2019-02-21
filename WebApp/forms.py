@@ -1,7 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-#from .models import User
-from django import forms
-
+from .models import venue
+from django.forms import ModelForm
 
 # class UserCreationForm(UserCreationForm):
 #     gender_choices = (
@@ -19,3 +18,9 @@ from django import forms
 #     class Meta:
 #         model = User
 #         fields = ('username', 'email')
+
+class venueForm(ModelForm):
+
+    class Meta:
+        model=venue
+        fields=['__all__']
