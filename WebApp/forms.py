@@ -23,4 +23,4 @@ class venueForm(ModelForm):
 
     class Meta:
         model=venue
-        fields=['__all__']
+        fields=['id']

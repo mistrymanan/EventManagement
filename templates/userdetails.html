@@ -1,0 +1,49 @@
+{% extends 'base_dashboard.html' %}
+{% block title %}{{ user }}-Profile{% endblock %}
+{% block dashboardtitle %}{{ user.email }}-Profile{% endblock %}
+{% block companyname %}{{ "Event Management" }}{% endblock %}
+{% block content %}
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-12">
+                                <div class="card-box widget-user">
+                                    <div>
+<h5 class="text-muted text-uppercase m-b-20">Account Details</h5>
+<a href="#" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Update</a>
+                                        {% if user.image %}
+                                        <img class="img-responsive img-circle" alt="user" src="{{ user.image.url }}">
+                                        {% else %}
+                                        <img class="img-responsive img-circle" alt="user" src="https://pngimage.net/wp-content/uploads/2018/06/login-user-png-7.png">
+                                        {% endif %}
+                                        <div class="wid-u-info">
+                                            <h5 class="m-t-20 m-b-5">First Name:{{user.first_name}} Last Name:{{user.last_name}}</h5>
+					                        <h5 class="m-t-20 m-b-5">Mobile No.:{{user.contact}} Email:{{user.email}}</h5>
+						                    <h5 class="m-t-20 m-b-5">username:{{user.username}} Last Name:{{user.last_name}}</h5>
+						                    <h5 class="m-t-20 m-b-5">DOB:{{profile.date_of_birth}}</h5>
+                                            <p class="text-muted m-b-0 font-13">Registered on:{{profile.created_at}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+</div>
+
+<div class="row">
+                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-6">
+                                <div class="card-box tilebox-two">
+                                    <i class="icon-rocket pull-xs-right text-muted"></i>
+                                    <h6 class="text-success text-uppercase m-b-15 m-t-10">Event Remaining
+                                    </h6>
+                                    <h2 class="m-b-10"><span data-plugin="counterup">{{remainingeventcount}}</span></h2>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-6">
+                                <div class="card-box tilebox-two">
+                                    <i class="icon-chart pull-xs-right text-muted"></i>
+                                    <h6 class="text-primary text-uppercase m-b-15 m-t-10">Total Events</h6>
+                                    <h2 class="m-b-10"><span data-plugin="counterup">{{eventcount}}</span></h2>
+                                </div>
+                            </div>
+
+                        </div>
+
+{% endblock %}

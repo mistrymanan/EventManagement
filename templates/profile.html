@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user }}-Profile</title>
+</head>
+<body>
+<p>User Name:{{ user.username }}</p>
+<p>First Name:{{ user.first_name }}</p>
+<p>Last Name:{{ user.last_name }}</p>
+<p>Email Name:{{ user.email }}</p>
+<p>Account creation Date:{{ user.last_login }}</p>
+{% if user.image%}
+    <img src="{{ user.image.url }}" width="240">
+{% else %}
+<p>no image</p>
+{% endif %}
+</body>
+</html>
