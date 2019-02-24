@@ -19,8 +19,16 @@ from django.forms import ModelForm
 #         model = User
 #         fields = ('username', 'email')
 
-class venueForm(ModelForm):
 
-    class Meta:
-        model=venue
-        fields=['id']
+# class venueForm(ModelForm):
+#
+#     class Meta:
+#         model=venue
+#         fields=['id']
+
+# class venueForm(ModelForm):
+#
+#     class Meta:
+#         model=venue
+#         fields=['__all__']
+
