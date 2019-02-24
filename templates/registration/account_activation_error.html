@@ -1,0 +1,18 @@
+{% extends 'generic_base.html' %}
+{% block title %}
+    Verification Failed
+{% endblock %}
+{% block form_title %}Verification Failed !!{% endblock %}
+{% load widget_tweaks %}
+{% block form %}
+     <form class="form-horizontal m-t-20" method="post" data-parsley-validate novalidate>
+  <div class="alert alert-danger" role="alert">
+      <strong>Oops!! </strong><br/>
+      {% block message %}Email Verification Failed!!<br/>
+            Try to Sign Up Again..
+      {% endblock %}
+</div>
+     </form>
+{% endblock %}
+{% block signupblock %}
+{% endblock %}

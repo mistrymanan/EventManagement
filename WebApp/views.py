@@ -17,8 +17,7 @@ from .models import venue
 from django.views.generic import CreateView, UpdateView, DeleteView
 
 
-def index(request):
-    return render(request, 'home.html')
+
 
 
 def profile(request):
@@ -36,9 +35,6 @@ def profile(request):
     return render(request, 'userdetails.html', context)
 
 
-
-def login(request):
-    return render(request, 'registration/login.html')
 
 
 class SignUp(generic.CreateView):
