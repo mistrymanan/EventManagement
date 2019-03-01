@@ -8,9 +8,9 @@
                                 <div class="card-box widget-user">
                                     <div>
 <h5 class="text-muted text-uppercase m-b-20">Account Details</h5>
-<a href="#" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Update</a>
-                                        {% if user.image %}
-                                        <img class="img-responsive img-circle" alt="user" src="{{ user.image.url }}">
+<a href="{% url 'profile-update' %}" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Update</a>
+                                        {% if profile.image %}
+                                        <img class="img-responsive img-circle" alt="user" src="{{ profile.image.url }}">
                                         {% else %}
                                         <img class="img-responsive img-circle" alt="user" src="https://pngimage.net/wp-content/uploads/2018/06/login-user-png-7.png">
                                         {% endif %}

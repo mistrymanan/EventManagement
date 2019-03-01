@@ -22,8 +22,10 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 
 def profile(request):
     profile_set = Profile.objects.filter(user=request.user)
+    profile=0
     for i in profile_set:
         profile = i
+    print(profile)
     address_set = Address.objects.filter(user=request.user)
     address=0
     for i in address_set:
