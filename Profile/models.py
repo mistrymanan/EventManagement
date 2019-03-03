@@ -72,7 +72,7 @@ class Profile(models.Model):
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(blank=True,upload_to='media')
+    image = models.ImageField(blank=True,upload_to='ProfilePics',default='')
     gender_choices = (('m', 'Male'),('f', 'Female'),('o','other'))
     gender = models.CharField(max_length=10, choices=gender_choices)
 

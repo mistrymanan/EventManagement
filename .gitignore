@@ -3,3 +3,4 @@ venv/*
 *.py[co]
 __pycache__
 db.sqlite3
+Master\ Template/*

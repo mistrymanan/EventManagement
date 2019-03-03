@@ -1,6 +1,6 @@
 {% extends 'base_dashboard.html' %}
-{% block title %}{{ user }}-Profile{% endblock %}
-{% block dashboardtitle %}{{ user.email }}-Profile{% endblock %}
+{% block title %}{{ user.username }}-Profile{% endblock %}
+{% block dashboardtitle %}User Profile{% endblock %}
 {% block companyname %}{{ "Event Management" }}{% endblock %}
 {% block content %}
 <div class="row">
@@ -25,7 +25,23 @@
                                 </div>
                             </div>
 </div>
+   <div class="row">
+<div class="col-xs-12 col-md-12 col-lg-12">
+                                <div class="card-box widget-user">
+                                    <div>
+<h5 class="text-muted text-uppercase m-b-20">Address Details</h5>
+<a href="{% url 'address-update' %}" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Update</a>
 
+                                        <div class="wid-u-info">
+                                            <h5 class="m-t-20 m-b-5">Address line 1:{{address.addressline}} Street:{{address.street}}</h5>
+					                        <h5 class="m-t-20 m-b-5">Area:{{address.area}} City:{{address.city}}</h5>
+						                    <h5 class="m-t-20 m-b-5">State:{{address.state}} Pincode:{{address.pincode}}</h5>
+						                    <h5 class="m-t-20 m-b-5">Country:{{address.country}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+</div>
 <div class="row">
                             <div class="col-xs-12 col-md-6 col-lg-6 col-xl-6">
                                 <div class="card-box tilebox-two">
@@ -45,5 +61,12 @@
                             </div>
 
                         </div>
+
+
+
+
+
+
+
 
 {% endblock %}
