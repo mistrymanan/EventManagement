@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'dashboard',
     'accounts',
     'widget_tweaks',
+    'StackHolder',
+    'Database',
 
 
     # 'allauth',

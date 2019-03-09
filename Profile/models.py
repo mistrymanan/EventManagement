@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, AbstractUser
 from django.contrib.auth.models import PermissionsMixin
 from accounts.models import User
-
+#from StackHolder.models import venue
 
 # Create your models here.
 
@@ -63,60 +63,3 @@ from accounts.models import User
 #
 #     def has_module_perms(self, app_label):
 #         return self.is_admin
-
-class Profile(models.Model):
-    id=models.AutoField(primary_key=True,blank=False,max_length=150,auto_created=True)
-    contact=models.CharField(max_length=12,null=True)
-    user = models.OneToOneField(User,on_delete=models.CASCADE,unique=True)
-    date_of_birth = models.DateField(null=True)
-    is_active = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(blank=True,upload_to='ProfilePics',default='')
-    gender_choices = (('m', 'Male'),('f', 'Female'),('o','other'))
-    gender = models.CharField(max_length=10, choices=gender_choices)
-
-class Address(models.Model):
-    id = models.AutoField(primary_key=True, blank=False, auto_created=True, max_length=150)
-    user = models.OneToOneField(User, on_delete=models.CASCADE,unique=True)
-    addressline = models.CharField(max_length=150)
-    street = models.CharField(max_length=150)
-    area = models.CharField(max_length=150)
-    city = models.CharField(max_length=150)
-    state = models.CharField(max_length=150)
-    pincode = models.CharField(max_length=150)
-    country = models.CharField(max_length=150)
-
-
-class venue(models.Model):
-    id = models.AutoField(primary_key=True, blank=False, max_length=150, auto_created=True)
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
-    capacity = models.CharField(max_length=150)
-    ac = models.BooleanField(default=False)
-    contactno = models.CharField(max_length=150, unique=True)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    cost = models.CharField(max_length=150)
-    is_active = models.BooleanField(default=True)
-
-
-# class decorationservice
-
-class events(models.Model):
-    id = models.AutoField(primary_key=True, auto_created=True, max_length=150)
-    user=models.ForeignKey(User, on_delete=models.SET_NULL,null=True)
-    venue = models.ForeignKey(venue, on_delete=models.SET_NULL, null=True)
-    name = models.CharField(max_length=200, blank=False)
-    description = models.CharField(max_length=200, blank=False)
-    # typeofevent
-    date = models.DateTimeField(blank=False)
-    starttime = models.DateTimeField(blank=False)
-    endtime = models.DateTimeField(blank=False)
-    expected_people = models.CharField(max_length=150, blank=False)
-    confirmed_people = models.CharField(max_length=150, blank=False)
-
-
-class invitation(models.Model):
-    id = models.AutoField(primary_key=True, max_length=150)
-    event = models.ForeignKey(events, max_length=100, on_delete=models.SET_NULL, null=True)
-    needprinted = models.BooleanField(default=False)
-    iscustomized = models.BooleanField(default=False)

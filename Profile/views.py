@@ -4,14 +4,12 @@ from django.views import generic
 from accounts.forms import CustomUserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
-from .models import Profile, Address, events
+from Database.models import Profile, Address, events
 from datetime import datetime
 from django.views.generic import ListView,DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from accounts.models import User
-from .models import venue
-
 # from django.http import HttpResponse
 # Create your views here.
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -87,7 +85,7 @@ class ProfileUpdateView(LoginRequiredMixin,UpdateView):
     model = Profile
     template_name = 'Profile/Profile_CreateView.html'
     success_url = '/profile/'
-    fields =['image','contact','date_of_birth','gender']
+    fields =['first_name','last_name','image','contact','date_of_birth','gender']
 
     def form_valid(self, form):
         form.instance.user=self.request.user
