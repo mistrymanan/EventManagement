@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'Profile',
     'accounts',
     'widget_tweaks',
+    'StackHolder',
+    'Database',
 
 
     # 'allauth',
