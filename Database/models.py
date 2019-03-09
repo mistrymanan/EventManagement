@@ -47,6 +47,7 @@ class invitation(models.Model):
 
 class Profile(models.Model):
     id=models.AutoField(primary_key=True,blank=False,max_length=150,auto_created=True)
+    last_name = models.CharField(max_length=20, blank=True)
     contact=models.CharField(max_length=12,null=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,unique=True)
     date_of_birth = models.DateField(null=True)
@@ -56,6 +57,8 @@ class Profile(models.Model):
     image = models.ImageField(blank=True,upload_to='ProfilePics',default='')
     gender_choices = (('m', 'Male'),('f', 'Female'),('o','other'))
     gender = models.CharField(max_length=10, choices=gender_choices)
+    first_name=models.CharField(max_length=20,blank=True)
+
 
 
 

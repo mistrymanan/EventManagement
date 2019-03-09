@@ -85,7 +85,7 @@ class ProfileUpdateView(LoginRequiredMixin,UpdateView):
     model = Profile
     template_name = 'Profile/Profile_CreateView.html'
     success_url = '/profile/'
-    fields =['image','contact','date_of_birth','gender']
+    fields =['first_name','last_name','image','contact','date_of_birth','gender']
 
     def form_valid(self, form):
         form.instance.user=self.request.user
