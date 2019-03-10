@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('Profile.urls')),
     path('', include('accounts.urls')),
     path('seller/', include('StackHolder.urls')),
+    path('', include('dashboard.urls')),
 ]
