@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import User
+from django.shortcuts import reverse
 
 # Create your models here.
 
@@ -16,26 +17,87 @@ class Address(models.Model):
 
 class venue(models.Model):
     id = models.AutoField(primary_key=True, blank=False, max_length=150, auto_created=True)
+    image=models.ImageField(null=True,default='',upload_to="venueimage")
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     capacity = models.CharField(max_length=150)
-    ac = models.BooleanField(default=False)
-    contactno = models.CharField(max_length=150, unique=True)
-    address = models.ForeignKey(to=Address, on_delete=models.CASCADE)
+    ac_choice=(('ac',"A/C"),('non-ac','Non A/c'))
+    ac = models.CharField(max_length=10,choices=ac_choice)
+    contact_no = models.CharField(max_length=150, unique=False)
     cost = models.CharField(max_length=150)
-    is_active = models.BooleanField(default=True)
+    #is_active = models.BooleanField(default=True)
+    name = models.CharField(blank=False, max_length=150,default='Name of Venue')
+    Addressline = models.CharField(max_length=150,default="Enter Address")
+    street = models.CharField(max_length=150,default="Enter Street")
+    area = models.CharField(max_length=150,default="Enter Area")
+    city = models.CharField(max_length=150,default="Enter City")
+    state = models.CharField(max_length=150,default="Enter state")
+    pincode = models.CharField(max_length=150,default="Enter pincode")
+    country = models.CharField(max_length=150,default="country")
+    def get_absolute_url(self):
+        return reverse('venue-detail', args=[str(self.id)])
+
+class SoundSystem(models.Model):
+    id = models.AutoField(primary_key=True, blank=False, max_length=150, auto_created=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    contact_no = models.CharField(max_length=150, unique=False)
+    #address_id = models.ForeignKey(to=Address, on_delete=models.CASCADE, blank=False)
+    cost = models.CharField(max_length=150)
+    # is_active = models.BooleanField(default=True)
+    name = models.CharField(blank=False, max_length=150, default='Name of Venue')
+    Addressline = models.CharField(max_length=150, default="Enter Address")
+    street = models.CharField(max_length=150, default="Enter Street")
+    area = models.CharField(max_length=150, default="Enter Area")
+    city = models.CharField(max_length=150, default="Enter City")
+    state = models.CharField(max_length=150, default="Enter state")
+    pincode = models.CharField(max_length=150, default="Enter pincode")
+    country = models.CharField(max_length=150, default="country")
+    def get_absolute_url(self):
+        return reverse('seller-SoundSystem-detail', args=[str(self.id)])
 
 class Catering(models.Model):
     id=models.AutoField(primary_key=True,blank=False,max_length=150,auto_created=True)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    contact_no=models.CharField(max_length=150,unique=True)
-    address_id=models.ForeignKey(to=Address,on_delete=models.CASCADE,blank=False)
+    contact_no=models.CharField(max_length=150,unique=False)
+    cost=models.CharField(max_length=150,default='')
     foodtype_choices = (('veg', 'Veg'), ('nonveg', 'Non-Veg'))
     foodtype=models.CharField(max_length=10,choices=foodtype_choices)
+    name = models.CharField(blank=False, max_length=150, default='')
+    Addressline = models.CharField(max_length=150, default="")
+    street = models.CharField(max_length=150, default="")
+    area = models.CharField(max_length=150, default="")
+    city = models.CharField(max_length=150, default="")
+    state = models.CharField(max_length=150, default="")
+    pincode = models.CharField(max_length=150, default="")
+    country = models.CharField(max_length=150, default="")
+
+    def get_absolute_url(self):
+        return reverse('seller-Catering-detail', args=[str(self.id)])
+
 
 class MenuImage(models.Model):
     id=models.AutoField(primary_key=True,blank=False,max_length=150,auto_created=True)
     catering=models.ForeignKey(to=Catering,on_delete=models.CASCADE)
     image=models.ImageField(blank=False,upload_to='Menu',default='')
+
+
+class Decoration(models.Model):
+    id=models.AutoField(primary_key=True,blank=False,max_length=150,auto_created=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    contact_no = models.CharField(max_length=150, unique=False)
+    # address_id = models.ForeignKey(to=Address, on_delete=models.CASCADE, blank=False)
+    cost = models.CharField(max_length=150)
+    # is_active = models.BooleanField(default=True)
+    name = models.CharField(blank=False, max_length=150, default='Name of Venue')
+    Addressline = models.CharField(max_length=150, default="Enter Address")
+    street = models.CharField(max_length=150, default="Enter Street")
+    area = models.CharField(max_length=150, default="Enter Area")
+    city = models.CharField(max_length=150, default="Enter City")
+    state = models.CharField(max_length=150, default="Enter state")
+    pincode = models.CharField(max_length=150, default="Enter pincode")
+    country = models.CharField(max_length=150, default="country")
+
+    def get_absolute_url(self):
+        return reverse('seller-Decoration-detail', args=[str(self.id)])
 
 
 class invitation(models.Model):

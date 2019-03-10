@@ -1,0 +1,38 @@
+{% extends 'base_dashboard.html' %}
+{% block title %}
+    DJ List
+{% endblock %}
+
+{% block dashboardtitle %}
+    DJ List
+{% endblock %}
+{% block content %}
+    {% load staticfiles  %}
+    <div class="row">
+    {% if object_list %}
+    {% for SoundSystem in object_list%}
+
+                            <div class="col-sm-4 col-lg-3 col-xs-12">
+                                <!-- Simple card -->
+                                <div class="card">
+                                    {% if SoundSystem.image %}
+                        <img class="card-img-top img-fluid" src={{ SoundSystem.image.url }} alt="Cardimagecap">
+                                    {% else %}
+                        <img class="card-img-top img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-l70pbnDPpGCz6z4SIdsgnqGch2jNN8TsFZ5LBIhwkaHMD7Yefg" alt="Card image cap">
+                                    {% endif %}
+
+                                    <div class="card-block"><h4 class="card-title">{{ SoundSystem.name }}</h4>
+                                        <p class="card-text">cost</p><p class="card-text">{{ venue.cost }}</p>
+                                        <a href="{{ SoundSystem.get_absolute_url }}" class="btn btn-primary">See Details</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+
+
+    {% endfor %}
+    {% else %}
+        <p>No Dj's are there</p>
+    {% endif %}
+    </div>
+{% endblock %}

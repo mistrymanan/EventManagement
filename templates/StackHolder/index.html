@@ -1,0 +1,54 @@
+{% extends 'base_dashboard.html' %}
+{% load widget_tweaks %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="row">
+
+                            <div class="col-sm-4 col-lg-3 col-xs-12">
+                                <!-- Simple card -->
+                                <div class="card">
+                        <img class="card-img-top img-fluid" src="http://www.jdcateringservice.com/images/wedding.jpg" alt="Card image cap">
+                                    <div class="card-block"><h4 class="card-title">Catering Service</h4>
+                                        <a href={% url 'seller-Catering-list' %} class="btn btn-primary">Catering Services</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+<div class="col-sm-4 col-lg-3 col-xs-12">
+                                <!-- Simple card -->
+                                <div class="card">
+                        <img class="card-img-top img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgwbrgpRinwb86DzL2jFRE6ZOt5gbpt85Ck4TJU6kMPVrfrFl9" alt="Card image cap">
+                                    <div class="card-block"><h4 class="card-title">Venue Service</h4>
+                                        <a href={% url 'seller-venue-list' %} class="btn btn-primary">Venue Services</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+
+<div class="col-sm-4 col-lg-3 col-xs-12">
+
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="https://cdn.shopify.com/s/files/1/0402/2017/products/Rainbow-tissue-pom-pom-decorations_grande.png?v=1436934601" alt="Card image cap">
+                                    <div class="card-block"><h4 class="card-title">Decoration Service</h4>
+                                        <a href={% url 'seller-Decoration-list' %} class="btn btn-primary">Decoration Services</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+
+
+<div class="col-sm-4 col-lg-3 col-xs-12">
+
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-l70pbnDPpGCz6z4SIdsgnqGch2jNN8TsFZ5LBIhwkaHMD7Yefg" alt="Card image cap">
+                                    <div class="card-block"><h4 class="card-title">Sound System Service</h4>
+                                        <a href={% url 'seller-SoundSystem-list' %} class="btn btn-primary">Sound System Services</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+
+
+    </div>
+{% endblock %}

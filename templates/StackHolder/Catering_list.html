@@ -1,0 +1,38 @@
+{% extends 'base_dashboard.html' %}
+{% block title %}
+    DJ List
+{% endblock %}
+
+{% block dashboardtitle %}
+    Catering List
+{% endblock %}
+{% block content %}
+    {% load staticfiles  %}
+    <div class="row">
+    {% if object_list %}
+    {% for Caterer in object_list%}
+
+                            <div class="col-sm-4 col-lg-3 col-xs-12">
+                                <!-- Simple card -->
+                                <div class="card">
+                                    {% if Caterer.image %}
+                        <img class="card-img-top img-fluid" src={{ Caterer.image.url }} alt="Cardimagecap">
+                                    {% else %}
+                        <img class="card-img-top img-fluid" src="http://www.jdcateringservice.com/images/wedding.jpg" alt="Card image cap">
+                                    {% endif %}
+
+                                    <div class="card-block"><h4 class="card-title">{{ Caterer.name }}</h4>
+                                        <p class="card-text">Statring cost</p><p class="card-text">{{ Caterer.cost }}</p>
+                                        <a href="{{ Caterer.get_absolute_url }}" class="btn btn-primary">See Details</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+
+
+    {% endfor %}
+    {% else %}
+        <p>No catering services are there</p>
+    {% endif %}
+    </div>
+{% endblock %}

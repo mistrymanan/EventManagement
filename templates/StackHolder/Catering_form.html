@@ -1,0 +1,54 @@
+{% extends 'base_dashboard.html' %}
+{% load widget_tweaks %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+<div class="row">
+	<div class="col-sm-12">
+    <div class="card-box">
+    <h4 class="header-title m-t-0 m-b-30">Catering Details</h4>
+    <div class="row">
+<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-12">
+
+     {% for field in form %}
+
+            <fieldset class="form-group ">
+
+
+                    {% if form.is_bound %}
+                        {% if field.errors %}
+                            <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                            {% for error in field.errors %}
+                                    {{ error }}
+                              {% endfor %}
+                            </div>
+                             <label>{{ field.label }}</label>
+                            {% render_field field class="form-control is-invalid" placeholder=field.label parsley-trigger="change" %}
+                        {% else %}
+                             <label>{{ field.label }}</label>
+                            {% render_field field class="form-control is-valid" placeholder=field.label parsley-trigger="change" %}
+                        {% endif %}
+                    {% else %}
+                        <label>{{ field.label }}</label>
+                        {% render_field field class="form-control" placeholder=field.label parsley-trigger="change"%}
+                    {% endif %}
+            </fieldset>
+        {% endfor %}
+
+    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+    <div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+    </div></div>
+
+
+
+</form>
+{%endblock%}
