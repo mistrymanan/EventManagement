@@ -1,0 +1,39 @@
+{% extends 'base_dashboard.html' %}
+{% block title %}
+    Decoration List
+{% endblock %}
+
+{% block dashboardtitle %}
+    Decoration List
+                                        <a href={% url 'seller-Decoration-create' %} class="btn btn-primary">Add New Service</a>
+{% endblock %}
+{% block content %}
+    {% load staticfiles  %}
+    <div class="row">
+    {% if object_list %}
+    {% for Decoration in object_list%}
+
+                            <div class="col-sm-4 col-lg-3 col-xs-12">
+                                <!-- Simple card -->
+                                <div class="card">
+                                    {% if Decoration.image %}
+                        <img class="card-img-top img-fluid" src={{ Decoration.image.url }} alt="Cardimagecap">
+                                    {% else %}
+                        <img class="card-img-top img-fluid" src="https://cdn.shopify.com/s/files/1/0402/2017/products/Rainbow-tissue-pom-pom-decorations_grande.png?v=1436934601" alt="Card image cap">
+                                    {% endif %}
+
+                                    <div class="card-block"><h4 class="card-title">{{ Decoration.name }}</h4>
+                                        <p class="card-text"><b>Starting cost:</b>{{ Decoration.cost }}</p>
+                                        <a href="{{ Decoration.get_absolute_url }}" class="btn btn-primary">See Details</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+
+
+    {% endfor %}
+    {% else %}
+        <p>No Decoration Services are there</p>
+    {% endif %}
+    </div>
+{% endblock %}

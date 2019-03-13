@@ -30,8 +30,11 @@
                                 <div class="card-box widget-user">
                                     <div>
 <h5 class="text-muted text-uppercase m-b-20">Address Details</h5>
+                                        {% if address %}
 <a href="{% url 'address-update' %}" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Update</a>
-
+                                            {% else %}
+<a href="{% url 'address-create' %}" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Add</a>
+{% endif %}
                                         <div class="wid-u-info">
                                             <h5 class="m-t-20 m-b-5">Address line 1:{{address.addressline}} Street:{{address.street}}</h5>
 					                        <h5 class="m-t-20 m-b-5">Area:{{address.area}} City:{{address.city}}</h5>

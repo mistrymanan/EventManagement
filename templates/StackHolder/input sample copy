@@ -1,0 +1,44 @@
+    {{ form.non_field_errors }}
+
+    {{ form.source.errors }}
+    {{ form.source }}
+      <fieldset class="form-group ">
+                    {% if form.is_bound %}
+                        {% if form.name.errors %}
+                            <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                            {% for error in form.name.errors %}
+                                    {{ error }}
+                              {% endfor %}
+                            </div>
+                             <label>{{ form.name.label }}</label>
+                            {% render_field form.name class="form-control is-invalid" placeholder=field.label parsley-trigger="change" %}
+                        {% else %}
+                             <label>{{ form.name.label }}</label>
+                            {% render_field form.name class="form-control is-valid" placeholder=field.label parsley-trigger="change" %}
+                        {% endif %}
+                    {% else %}
+                        <label>{{ form.name.label }}</label>
+                        {% render_field form.name class="form-control" placeholder=field.label parsley-trigger="change"%}
+{% endif %}
+            </fieldset>
+
+
+
+<form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+<div class="row">
+	<div class="col-sm-12">
+    <div class="card-box">
+    <h4 class="header-title m-t-0 m-b-30">Venue Details</h4>
+    <div class="row">
+
+</div>
+</div>
+
+
+
+    </div></div>
+
+<button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+
+</form>
