@@ -13,14 +13,9 @@ def index(request):
     contex={'profile':user}
     return render(request,'StackHolder/index.html',contex)
 
-
-
-
 class venuelistview(LoginRequiredMixin, ListView):
     model = venue
-
     template_name = 'StackHolder/venue_list.html'
-
     def get_queryset(self):
         return venue.objects.filter(user=self.request.user)
 

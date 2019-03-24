@@ -1,176 +1,71 @@
-{% extends 'base_dashboard.html' %}
+{% extends 'base_dashboard_seller.html' %}
 {% load widget_tweaks %}
 
-{% block title %}{% endblock %}
+{% block title %}{{ object.name }}-Details{% endblock %}
 
 {% block dashboardtitle %}
+Details
 {% endblock %}
 {% block content %}
-<h1>detail view</h1>
-<p>{{ object.name }}</p>
-<p>{{ object.contactno }}</p>
+
                                 <div>
-                                    <h5 class="text-muted text-uppercase m-b-20">Account Details</h5>
-                                    <a href="{% url 'profile-update' %}" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Update</a>
                                     <div class="card-box widget-user">
+                                    <h5>Venue Details</h5>
+                                     <a href="{% url 'venue-update' object.id  %}" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Update</a>
+
                                         <table>
                                         <div class="wid-u-info">
                                             <tr>
                                                 <td>
-                                                <h5 class="m-t-20 m-b-5">ID</h5>
+                                                <h5 class="m-t-20 m-b-5">Name</h5>
                                                 </td>
                                                 <td><h5 class="m-t-20 m-b-5">: {{object.name}}</h5></td>
                                                 <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">User</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">:</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">Address</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">:{{ object.Addressline }}</h5></td>
                                             </tr>
 					                        <tr>
                                                 <td>
-                                                <h5 class="m-t-20 m-b-5">Address</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
+                                                <h5 class="m-t-20 m-b-5">Street</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">:{{ object.street }}</h5></td>
                                                 <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> Street</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> Area</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> :{{ object.area}}</h5></td>
                                             </tr>
 						                    <tr>
-                                                <td><h5 class="m-t-20 m-b-5">Area</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">City</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">:{{ object.city }}</h5></td>
                                                 <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> City </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> State </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> : {{ object.state }}</h5></td>
                                             </tr>
 						                    <tr>
-                                                <td><h5 class="m-t-20 m-b-5">State</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">Pincode</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> : {{ object.pincode }}</h5></td>
                                                 <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> Pincode </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> Country</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> : {{ object.country }}</h5></td>
                                             </tr>
                                             <tr>
-                                                <td><h5 class="m-t-20 m-b-5">Country</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                            </tr>
+                                                <td><h5 class="m-t-20 m-b-5">Ac</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> :{{ object.ac }} </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> Capacity</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> : {{ object.capacity }}</h5></td>
 
-                                            <p class="text-muted m-b-0 font-13">Registered on:{{profile.created_at}}</p>
+                                            </tr>
+                                            <tr>
+                                                <td><h5 class="m-t-20 m-b-5">Cost</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> :{{ object.cost }} </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> Contact No.</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> : {{ object.contact_no}}</h5></td>
+
+                                            </tr>
                                         </div>
                                         </table>
                                     </div>
-.....Catering
                                     <div>
-                                    <h5 class="text-muted text-uppercase m-b-20">Account Details</h5>
-                                    <a href="{% url 'profile-update' %}" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Update</a>
-                                    <div class="card-box widget-user">
-                                        <table>
-                                        <div class="wid-u-info">
-                                            <tr>
-                                                <td><h5 class="m-t-20 m-b-5">ID</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">:</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">User</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">:</h5></td>
-                                            </tr>
-					    <tr>
-                                                <td><h5 class="m-t-20 m-b-5">Contact No </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">Cost</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">:</h5></td>
-                                            </tr>
-
-                                                <td><h5 class="m-t-20 m-b-5">Name </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">Food Choice</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
-                                            </tr>
-					                        <tr>
-                                                <td><h5 class="m-t-20 m-b-5">Food Type</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">:</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">Address</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
-                                            </tr>
-						                    <tr>
-                                                <td><h5 class="m-t-20 m-b-5"> Street</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">Area</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
-                                            </tr>
-						                    <tr>
-                                                <td><h5 class="m-t-20 m-b-5"> City </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">State</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                            </tr>
-                                            <tr>
-                                                <td><h5 class="m-t-20 m-b-5"> Pincode </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">Country</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                            </tr>
-
-                                            <p class="text-muted m-b-0 font-13">Registered on:{{profile.created_at}}</p>
-                                        </div>
-                                        </table>
-                                    </div>
-....Decoration
-                                        <div>
-                                    <h5 class="text-muted text-uppercase m-b-20">Account Details</h5>
-                                    <a href="{% url 'profile-update' %}" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Update</a>
-                                    <div class="card-box widget-user">
-                                        <table>
-                                        <div class="wid-u-info">
-                                            <tr>
-                                                <td><h5 class="m-t-20 m-b-5">ID</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">:</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">User</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">:</h5></td>
-                                            </tr>
-					    <tr>
-                                                <td><h5 class="m-t-20 m-b-5">Contact No </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">Cost</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">:</h5></td>
-                                            </tr>
-
-                                                <td><h5 class="m-t-20 m-b-5">Name </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">Address</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
-                                            </tr>
-						                    <tr>
-                                                <td><h5 class="m-t-20 m-b-5"> Street</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">Area</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">: </h5></td>
-                                            </tr>
-						                    <tr>
-                                                <td><h5 class="m-t-20 m-b-5"> City </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">State</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                            </tr>
-                                            <tr>
-                                                <td><h5 class="m-t-20 m-b-5"> Pincode </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5">Country</h5></td>
-                                                <td><h5 class="m-t-20 m-b-5"> : </h5></td>
-                                            </tr>
-
-                                            <p class="text-muted m-b-0 font-13">Registered on:{{profile.created_at}}</p>
-                                        </div>
-                                        </table>
-                                    </div>
-
 
 
 {% endblock %}
