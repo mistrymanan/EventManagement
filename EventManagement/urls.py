@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from WebApp import views
+admin.site.site_header = 'Event Management Administration'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Profile.urls')),
