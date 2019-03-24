@@ -17,7 +17,7 @@ class Address(models.Model):
 
 class venue(models.Model):
     id = models.AutoField(primary_key=True, blank=False, max_length=150, auto_created=True)
-    image=models.ImageField(null=True,default='',upload_to="venueimage")
+    image= models.ImageField(null=True,default='',upload_to="venueimage")
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     capacity = models.CharField(max_length=150)
     ac_choice=(('ac',"A/C"),('non-ac','Non A/c'))

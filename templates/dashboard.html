@@ -1,0 +1,55 @@
+{% extends 'base_dashboard.html' %}
+
+{% block title %}
+    DashBoard
+{% endblock %}
+
+{% block dashboardtitle %}
+    DashBoard - Event Management
+{% endblock %}
+{% block content %}
+    {% load staticfiles  %}
+
+
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                                <div class="card-box tilebox-one">
+                                    <i class="icon-layers pull-xs-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase m-b-20">Venues</h6>
+                                    <h2 class="m-b-20" data-plugin="counterup">{{ venue_count }}</h2>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                                <div class="card-box tilebox-one">
+                                    <i class="icon-layers pull-xs-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase m-b-20">Catering Services</h6>
+                                    <h2 class="m-b-20" data-plugin="counterup">{{ cat_count }}</h2>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                                <div class="card-box tilebox-one">
+                                    <i class="icon-layers pull-xs-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase m-b-20">Sound System Providers</h6>
+                                    <h2 class="m-b-20" data-plugin="counterup">{{ sound_count }}</h2>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                                <div class="card-box tilebox-one">
+                                    <i class="icon-layers pull-xs-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase m-b-20">Decoration Providers</h6>
+                                    <h2 class="m-b-20" data-plugin="counterup">{{ deco_count }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+
+
+
+
+
+
+{% endblock %}
