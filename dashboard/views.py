@@ -12,11 +12,11 @@ class ManageEventView(ListView):
 def dashboard(request):
     if not request.user.is_authenticated:
         return redirect('login')
-    # counts = {
-    #     'cat_count': models.Catering.objects.count(),
-    #     'venue_count': models.venue.objects.count(),
-    #     'deco_count': models.Decoration.objects.count(),
-    #     'sound_count': models.SoundSystem.objects.count()
-    # }
-    return render(request,'dashboard.html')
+    counts = {
+        'cat_count': models.Catering.objects.count(),
+        'venue_count': models.venue.objects.count(),
+        'deco_count': models.Decoration.objects.count(),
+        'sound_count': models.SoundSystem.objects.count()
+    }
+    return render(request,'dashboard.html',context=counts)
 
