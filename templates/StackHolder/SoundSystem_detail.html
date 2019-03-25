@@ -1,12 +1,59 @@
 {% extends 'base_dashboard_seller.html' %}
 {% load widget_tweaks %}
-
-{% block title %}{% endblock %}
+{% block title %}{{ object.name }}-Details{% endblock %}
 
 {% block dashboardtitle %}
+    Details
 {% endblock %}
 {% block content %}
-<h1>dj details</h1>
-<p>{{ object.name }}</p>
-<p>{{ object.contactno }}</p>
+
+                                    <div class="card-box widget-user">
+                                       <h5>Sound System Details</h5>
+                                          <a href="{% url 'seller-Decoration-update' object.id %}" class="btn btn-sm btn-custom waves-effect waves-light pull-xs-right">Update</a>
+
+                                        <table>
+                                        <div class="wid-u-info">
+                                            <tr>
+                                                <td><h5 class="m-t-20 m-b-5">User</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">:{{ object.name }}</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
+
+
+                                                <td><h5 class="m-t-20 m-b-5">Contact No </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">:{{ object.contact_no }}</h5></td>
+                                                </tr>
+					    <tr>
+                            <td><h5 class="m-t-20 m-b-5">Cost</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">:{{ object.cost }}</h5></td>
+
+                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
+
+                                                <td><h5 class="m-t-20 m-b-5">Address</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">:{{ object.Addressline }}</h5></td>
+                                            </tr>
+						                    <tr>
+                                                <td><h5 class="m-t-20 m-b-5"> Street</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> :{{ object.street }}</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">Area</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">:{{ object.area }}</h5></td>
+                                            </tr>
+						                    <tr>
+                                                <td><h5 class="m-t-20 m-b-5"> City </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> :{{ object.city }}</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">State</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> :{{ object.state }}</h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td><h5 class="m-t-20 m-b-5"> Pincode </h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> :{{ object.pincode }}</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5">Country</h5></td>
+                                                <td><h5 class="m-t-20 m-b-5"> :{{ object.country }}</h5></td>
+                                            </tr>
+                                        </div>
+                                        </table>
+                                    </div>
 {% endblock %}
+
